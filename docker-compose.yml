@@ -136,9 +136,9 @@ services:
       - /bin/bash
       - -c
       - invoke install --develop &&
-        (python -m compileall /usr/local/lib/python3.5 || true) &&
-        rm -Rf /python3.5/* &&
-        cp -Rf -p /usr/local/lib/python3.5 /
+        (python -m compileall /usr/local/lib/python3.6 || true) &&
+        rm -Rf /python3.6/* &&
+        cp -Rf -p /usr/local/lib/python3.6 /
     restart: 'no'
     volumes:
       - mfr_requirements_vol:/python3.5
@@ -393,7 +393,7 @@ services:
   #######
 
   requirements:
-    image: quay.io/centerforopenscience/osf:develop
+    image: quay.io/centerforopenscience/osf:develop-local
     # Need to allocate tty to be able to call invoke for requirements task
     tty: true
     command:
